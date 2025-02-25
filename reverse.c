@@ -1,22 +1,16 @@
 #include<stdio.h>
 int main(){
-	int n, i, max, min, max_pos, min_pos;
-	printf("Enter the size of array: ");
-	scanf("%d", &n);
-	int array[n];
-	printf("Enter the elmental values: \n");
-	for(i=0;i<n;i++){
-		scanf("%d",&array[i]);
+	char string[30],temp;
+	int i,j,length;
+	printf("Enter a string:\n");
+	scanf("%[^\n]", string);
+	for (length=0; string[length]!='\0'; length++);
+	i=length-1;
+	for(j=0;j<length/2;j++,i--){
+		temp=string[i];
+		string[i]=string[j];
+		string[j]=temp;
 	}
-	printf("The value of arrays are: \n");
-	for(i=0;i<n;i++){
-		printf("%d \t", array[i]);
-	}
-	printf("\n");
-	printf("The value of reverse arrays are: \n");
-	for(i=n-1;i>=0;i--){
-		printf("%d \t", array[i]);
-	}
-	printf("\n");
+	printf("The reversed string is:\n %s\n",string);
 	return 0;
 }
